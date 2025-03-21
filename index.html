@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+            margin: 0;
+            color: white;
+        }
+        .card {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            color: white;
+        }
+        .card h1 {
+            color: #800080; /* Morado */
+            margin-bottom: 20px;
+        }
+        input[type="password"], input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+        }
+        button {
+            background-color: #800080; /* Morado */
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #663399; /* Morado más oscuro al pasar el ratón */
+        }
+        #message {
+            margin-top: 10px;
+            color: red;
+            font-size: 16px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .checkbox-container input {
+            margin-right: 5px;
+        }
+        .alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #9575cd;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+        }
+        .alert.show {
+            opacity: 1;
+        }
+        .alert button {
+            display: block;
+            margin: 10px auto;
+            background-color: black; /* <-- Cambiado a negro */
+            color: white; /* Texto blanco para contraste */
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Holaa 🥹 !! Bienvenida</h1>
+        <p>Ingresa la contraseña:</p>
+        <input type="password" id="password" placeholder="Contraseña">
+        <div class="checkbox-container">
+            <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Mostrar Contraseña
+        </div>
+        <p id="message"></p>
+        <button onclick="checkPassword()">Ingresar</button>
+    </div>
+    <div id="alertBox" class="alert"></div>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const alertBox = document.getElementById("alertBox");
+            const message = document.getElementById("message");
+            if (password === "TEVEZMUYTIERNOALCOMER") {
+                alertBox.innerHTML = "<p>BIENVENIDA CHIQUITITA TE QUIEROO <3</p><button onclick='redirect()'>Aceptar</button>";
+                alertBox.classList.add("show");
+            } else {
+                message.textContent = "NO valido";
+                message.style.color = "red";
+                alertBox.classList.remove("show");
+            }
+        }
+        function redirect() {
+            window.location.href = "detalle.html";
+        }
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById("password");
+            const showPasswordCheckbox = document.getElementById("showPassword");
+            if (showPasswordCheckbox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+  </html>
+  
