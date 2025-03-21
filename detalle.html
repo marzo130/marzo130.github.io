@@ -34,10 +34,10 @@ audio {
 
 #myImage {
   display: none;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  margin: 0; /* Remove default margin */
+  width: 100vw; /* Use viewport width */
+  height: 80vh; /* Use viewport height */
+  object-fit: cover; /* Cover the entire screen, maintaining aspect ratio */
 }
 </style>
 <script>
