@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Detalle</title>
+<style>
+.alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f8d7da; /* Rosa */
+  border: 1px solid #f5c6cb;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.alert button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: black; /* Negro */
+  color: white; /* Texto blanco para contraste */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+audio {
+  display: none;
+}
+
+#myImage {
+  display: none;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+</style>
+<script>
+function showAlert() {
+  document.getElementById("alertBox").style.display = "block";
+}
+
+function playAudio() {
+  let audio = document.getElementById("audioPlayer");
+  audio.play();
+  document.getElementById("alertBox").style.display = "none";
+  document.getElementById("myImage").style.display = "block";
+}
+</script>
+</head>
+<body onload="showAlert()">
+  <h1>Bienvenida mi cielo feliz #21 ❤️!</h1>
+  <div id="alertBox" class="alert">
+    <p>Debes reproducir el audio:</p>
+    <button onclick="playAudio()">Aceptar</button>
+  </div>
+  <img id="myImage" src="girasol.jpg" alt="Mi Imagen">
+  <audio id="audioPlayer" controls>
+    <source src="musi.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento audio.
+  </audio>
+</body>
+</html>
